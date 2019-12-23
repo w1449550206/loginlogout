@@ -59,10 +59,13 @@ def login():
 
 @app.route('/show')
 def show():
-    #展示用户信息
-    uid = None   #TODO
-    user = User.query.get(uid)
-    return render_template('show.html', user=user)
+    #展示用户信息,从cookie里获取用户id
+    uid = request.cookies.get('uid')
+    if uid is None:
+        return redirect('/login')
+    else:
+        user = User.query.get(uid)
+        return render_template('show.html', user=user)
    
 
 
