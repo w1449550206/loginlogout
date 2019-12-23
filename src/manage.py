@@ -6,16 +6,11 @@ from flask_migrate import Migrate, MigrateCommand
 
 from app import app
 from app import db
-from app import Student
+from app import User
 
 migrate = Migrate(app, db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
-
-
-# @manager.command
-# def init_db():
-#     db.create_all()
 
 
 @manager.command

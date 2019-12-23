@@ -33,14 +33,15 @@ class User(db.Model):
 @app.route('/login',methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
-        uid = int(request.form['uid'])
-        user = Student.query.get(uid)
-        user.gender = request.form['gender']
-        user.chinese = int(request.form['chinese'])
-        user.math = int(request.form['math'])
-        db.session.add(user)
-        db.session.commit()
-        return redirect('/')
+        # # uid = int(request.form['uid'])
+        # # user = Student.query.get(uid)
+        # # user.gender = request.form['gender']
+        # # user.chinese = int(request.form['chinese'])
+        # # user.math = int(request.form['math'])
+        # # db.session.add(user)
+        # # db.session.commit()
+        # return redirect('/')
+        pass
     else:
         # uid = int(request.args['uid'])
         # user = Student.query.get(uid)
@@ -52,6 +53,7 @@ def show():
     # uid = int(request.args['uid'])
     # user = Student.query.get(uid)
     # return render_template('info.html', user=user)
+    pass
 
 
 
