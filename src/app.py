@@ -16,7 +16,7 @@ UPLOAD_DIR = os.path.join(BASE_DIR, 'static', 'upload')
 pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://vicky:wangwenqi5261@localhost/student'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://vicky:wangwenqi5261@localhost/loginlogout'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
@@ -33,14 +33,14 @@ class User(db.Model):
 @app.route('/login',methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
-        # uid = int(request.form['uid'])
-        # user = Student.query.get(uid)
-        # user.gender = request.form['gender']
-        # user.chinese = int(request.form['chinese'])
-        # user.math = int(request.form['math'])
-        # db.session.add(user)
-        # db.session.commit()
-        # return redirect('/')
+        uid = int(request.form['uid'])
+        user = Student.query.get(uid)
+        user.gender = request.form['gender']
+        user.chinese = int(request.form['chinese'])
+        user.math = int(request.form['math'])
+        db.session.add(user)
+        db.session.commit()
+        return redirect('/')
     else:
         # uid = int(request.args['uid'])
         # user = Student.query.get(uid)
