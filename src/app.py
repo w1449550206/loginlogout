@@ -7,6 +7,7 @@ from flask import Flask
 from flask import request
 from flask import render_template
 from flask import redirect
+from flask import make_response
 from flask_sqlalchemy import SQLAlchemy
 
 # 项目文件夹的绝对路径
@@ -33,27 +34,36 @@ class User(db.Model):
 @app.route('/login',methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
-        # # uid = int(request.form['uid'])
-        # # user = Student.query.get(uid)
-        # # user.gender = request.form['gender']
-        # # user.chinese = int(request.form['chinese'])
-        # # user.math = int(request.form['math'])
-        # # db.session.add(user)
-        # # db.session.commit()
-        # return redirect('/')
-        pass
+        # 获取参数
+        username=request.form.get('username')
+        password=request.form.get('password')
+
+        # 验证用户名和密码
+        User.query.filter_by(username=username,password=password).first()
+
+        if user is None:
+            retuen redirect('/login')
+        else:
+           
+            # 进行模板渲染
+            html = render_template('show.html',user=user)
+            response = make_response(html)
+
+            #通过cookie记录登陆过的用户id
+            response.set_cookie('uid',user.id)
+            return render_template('show.html',user-user)
+        
     else:
-        # uid = int(request.args['uid'])
-        # user = Student.query.get(uid)
         return render_template('login.html')
 
 
 @app.route('/show')
 def show():
-    # uid = int(request.args['uid'])
-    # user = Student.query.get(uid)
-    # return render_template('info.html', user=user)
-    pass
+    #展示用户信息
+    uid = None   #TODO
+    user = User.query.get(uid)
+    return render_template('show.html', user=user)
+   
 
 
 
