@@ -42,7 +42,7 @@ def login():
         User.query.filter_by(username=username,password=password).first()
 
         if user is None:
-            retuen redirect('/login')
+            return redirect('/login')
         else:
            
             # 进行模板渲染
