@@ -1,16 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>用户登录页面</title>
-</head>
-<body>
-<h1>请您登录</h1>
-<hr>
-<form action="/login" method="POST">
-    用户名：<input type="text" name="username"><br>
-    密码：<input type="password" name="username"><br>
-    <input type="submit">
-</form>
-</body>
+<html lang="zh-CN">
+    <head>
+        <title>用户登录</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">学生系统 <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">成绩单</a></li>
+                      <li><a href="#">课程表</a></li>
+                      <li><a href="#">请假系统</a></li>
+                      <li><a href="#">讲师测评</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+
+                <!-- 内容区 -->
+                <div class="col-sm-8">
+
+                    <h1 class="h1">请登录</h1>
+
+                    <hr>
+
+                    <form class="form-horizontal" action="/login" method="POST">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">昵称：</label>
+                            <div class="col-sm-5">
+                                <input class="form-control" type="text" name="username" placeholder="请输入昵称">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">密码：</label>
+                            <div class="col-sm-5">
+                                <input class="form-control" type="password" name="password" placeholder="请输入密码">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-5">
+                                <button type="submit" class="btn btn-primary">登陆</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <!-- 边栏 -->
+                <div class="col-sm-4">
+                    你瞅啥
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </body>
 </html>

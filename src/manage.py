@@ -15,9 +15,9 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def init_data():
-    tom = User(username='tom',  age=30, password='73453458')
-    bob = User(username='bob', age=27, password='65757567567')
-    lucy = User(username='lucy', age=24, password='gsfdgsfdgsdg')
+    tom = User(username='tom',  age=30, password='1234')
+    bob = User(username='bob', age=27, password='5678')
+    lucy = User(username='lucy', age=24, password='000000')
     lily = User(username='lily',age=26, password='gfjhfgjgfj')
     alex = User(username='alex', age=91, password='575457567')
     john = User(username='john', age=29, password='hhjfhgjfghjfg')
